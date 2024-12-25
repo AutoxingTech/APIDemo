@@ -96,12 +96,18 @@ func TestAxTask(t *testing.T) {
 	tp1 := NewTaskPoint(poi1, true)
 	task.AddTaskPt(tp1)
 
+	// # 添加动作 "3111002" "3111012" 为音频ID 音频列表可以联系技术支持
+	// # Add action "3111002" "3111012" as audio ID. Audio list can contact technical support.
+	// # 添加动作 "PauseAction(10)" 为暂停10秒
+	// # Add action "PauseAction(10)" to pause for 10 seconds
 	tp2 := NewTaskPoint(poi2, true)
 	tp2.AddStepActs(Action.PlayAudioAction("3111002")).
 		AddStepActs(Action.PauseAction(10)).
 		AddStepActs(Action.PlayAudioAction("3111012"))
 	task.AddTaskPt(tp2)
 
+	// # 添加动作 "test" 为自定义数据，当任务到达该点时，会触发事件，可以在websocket接口中获取触发事件。
+	// # Add action "test" as custom data. When the task reaches this point, an event will be triggered. The trigger event can be obtained in the websocket interface.
 	park := NewTaskPoint(poi1, true)
 	park.AddStepActs(Action.WaitAction(map[string]string{"cmd": "test"}))
 	task.SetBackPt(park)
