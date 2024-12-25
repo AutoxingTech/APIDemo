@@ -10,7 +10,7 @@ API DOC
 
 ## Modify the Configuration File
 
-config.py
+- [config.py](python3/config.py)
 
 ```python
 Modify the following values to the corresponding obtained values:
@@ -31,7 +31,7 @@ config["token"] = The token obtained from AxToken.py
 
 ## How to Obtain a Token
 
-AxToken.py
+- [AxToken.py](python3/AxToken.py)
 
 ```python
     manager = TokenManager()
@@ -40,7 +40,7 @@ AxToken.py
 
 ## How to Get the Robot List
 
-AxRobot.py
+- [AxRobot.py](python3/AxRobot.py)
 
 ```python
     manager = RobotManager(config["token"])
@@ -49,7 +49,8 @@ AxRobot.py
 
 ## How to Get POI Information
 
-AxMapInfo.py
+
+- [AxMapInfo.py](python3/AxMapInfo.py)
 
 The `getPoiList` method allows you to set parameters such as `businessId`, `robotId`, and `areaId`. For general development, it is recommended to use `robotId`.
 
@@ -68,13 +69,14 @@ The `getPoiList` method allows you to set parameters such as `businessId`, `robo
 ## How to Get `businessId`
 
 Refer to:
-- AxBusiness.py
-- AxBuilding.py
+- [AxBusiness.py](python3/AxBusiness.py)
+- [AxBuilding.py](python3/AxBuilding.py)
 
 ## How to Create and Execute Tasks
 
 Refer to:
-- AxTask.py
+
+- [AxTask.py](python3/AxTask.py)
 
 ### General Task Workflow:
 1. Construct the task object.

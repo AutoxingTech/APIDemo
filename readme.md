@@ -11,8 +11,7 @@ API 文档
 
 
 ## 修改配置文件
-
-config.py
+- [config.py](python3/config.py)
 
 ``` python
 
@@ -40,7 +39,7 @@ config["token"] = AxToken.py 中获取到的token
 
 ## 如何获取token
 
-AxToken.py
+- [AxToken.py](python3/AxToken.py)
 
 ``` python
     manager = TokenManager()
@@ -49,7 +48,7 @@ AxToken.py
 
 ## 如何获取机器人列表
 
-AxRobot.py
+- [AxRobot.py](python3/AxRobot.py)
 
 ``` python
     manager = RobotManager(config["token"])
@@ -59,7 +58,7 @@ AxRobot.py
 
 ## 如何获取POI信息
 
-AxMapInfo.py
+- [AxMapInfo.py](python3/AxMapInfo.py)
 
 getPoiList 可以根据需要设置参数。businessId,robotId,areaId
 一般开发，推荐robotId
@@ -83,14 +82,14 @@ getPoiList 可以根据需要设置参数。businessId,robotId,areaId
 ## 如何获取 businessId 
 
 参考 ：
-    AxBusiness.py
-    AxBuilding.py
+-    [AxBusiness.py](python3/AxBusiness.py)
+-    [AxBuilding.py](python3/AxBuilding.py)
 
 
 ## 如何创建和执行任务
 
 参考：
-    AxTask.py
+-    [AxTask.py](python3/AxTask.py)
 
 
     任务的一般流程：
