@@ -1,3 +1,5 @@
+[[中文]](readme.md) [[English]](readme_en.md)
+
 # Usage Instructions
 
 ## Modify the Configuration File

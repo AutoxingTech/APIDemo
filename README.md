@@ -1,3 +1,5 @@
+[[中文]](readme.md) [[English]](readme_en.md)
+
 # 使用方法
 
 ## 修改配置文件
