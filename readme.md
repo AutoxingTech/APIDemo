@@ -2,6 +2,14 @@
 
 # 使用方法
 
+API 文档
+https://service.autoxing.com/docs/api/zh-cn/
+https://service.autoxing.com/docs/api/en-us/
+https://serviceglobal.autoxing.com/docs/api/zh-cn/
+https://serviceglobal.autoxing.com/docs/api/en-us/
+
+
+
 ## 修改配置文件
 
 config.py

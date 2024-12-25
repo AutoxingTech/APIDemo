@@ -2,6 +2,12 @@
 
 # Usage Instructions
 
+API DOC
+https://service.autoxing.com/docs/api/zh-cn/
+https://service.autoxing.com/docs/api/en-us/
+https://serviceglobal.autoxing.com/docs/api/zh-cn/
+https://serviceglobal.autoxing.com/docs/api/en-us/
+
 ## Modify the Configuration File
 
 config.py
