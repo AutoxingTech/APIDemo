@@ -10,25 +10,27 @@ import (
 )
 
 // Action types and builders
-type ActionType struct{}
+// type ActionType struct{}
+
+type ActionType struct {
+	Type int                    `json:"type"`
+	Data map[string]interface{} `json:"data"`
+}
 
 var Action = ActionType{}
 
 // PauseAction creates a pause action
-func (a ActionType) PauseAction(duration int) map[string]interface{} {
-	return map[string]interface{}{
-		"type": 18,
-		"data": map[string]interface{}{
-			"pauseTime": duration,
-		},
-	}
+func (a ActionType) PauseAction(duration int) ActionType {
+	return ActionType{18, map[string]interface{}{
+		"pauseTime": duration,
+	}}
 }
 
 // PlayAudioAction creates a play audio action
-func (a ActionType) PlayAudioAction(audioId string) map[string]interface{} {
-	return map[string]interface{}{
-		"type": 5,
-		"data": map[string]interface{}{
+func (a ActionType) PlayAudioAction(audioId string) ActionType {
+	return ActionType{
+		5,
+		map[string]interface{}{
 			"mode":     1,
 			"url":      "",
 			"audioId":  audioId,
@@ -42,12 +44,40 @@ func (a ActionType) PlayAudioAction(audioId string) map[string]interface{} {
 }
 
 // WaitAction creates a wait action
-func (a ActionType) WaitAction(userData interface{}) map[string]interface{} {
-	return map[string]interface{}{
-		"type": 40,
-		"data": map[string]interface{}{
+func (a ActionType) WaitAction(userData interface{}) ActionType {
+	return ActionType{
+		40,
+		map[string]interface{}{
 			"userData": userData,
 		},
+	}
+}
+
+func (a ActionType) LiftUp(useAreaId *string) ActionType {
+
+	attrs := map[string]interface{}{}
+
+	if useAreaId != nil {
+		attrs["useAreaId"] = *useAreaId
+	}
+
+	return ActionType{
+		47,
+		attrs,
+	}
+}
+
+func (a ActionType) LiftDown(useAreaId *string) ActionType {
+
+	attrs := map[string]interface{}{}
+
+	if useAreaId != nil {
+		attrs["useAreaId"] = *useAreaId
+	}
+
+	return ActionType{
+		48,
+		attrs,
 	}
 }
 
@@ -86,7 +116,7 @@ func NewTaskPoint(poi POI, ignoreYaw bool) *TaskPoint {
 }
 
 // AddStepActs adds a step action to the task point
-func (tp *TaskPoint) AddStepActs(stepAct map[string]interface{}) *TaskPoint {
+func (tp *TaskPoint) AddStepActs(stepAct ActionType) *TaskPoint {
 	tp.pt["stepActs"] = append(tp.pt["stepActs"].([]interface{}), stepAct)
 	return tp
 }

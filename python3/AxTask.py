@@ -8,7 +8,6 @@ import requests
 from config import config
 
 
-
 class Action:
     """
     Action Class
@@ -54,6 +53,41 @@ class Action:
         }
     
 
+    @staticmethod
+    def LiftUp(useAreaId=None):
+        """
+        LiftUp Action 
+        useAreaId: Use shelf area, required shelf area ID
+        """
+        retObj = {
+            "type": 47,
+            "data": {}
+        }
+
+        if useAreaId:
+            retObj["data"]["useAreaId"] = useAreaId
+
+        return retObj
+        
+
+    
+    @staticmethod
+    def LiftDown(useAreaId=None):
+        """
+        LiftDown Action 
+        useAreaId: Use shelf area, required shelf area ID
+        """
+        retObj = {
+            "type": 48,
+            "data": {}
+        }
+
+        if useAreaId:
+            retObj["data"]["useAreaId"] = useAreaId
+
+        return retObj
+    
+     
 
 class TaskPoint:
     """
@@ -294,7 +328,7 @@ if __name__ == "__main__":
 
 
 
-    tp2.addStepActs(Action.PlayAudioAction("3111002")).addStepActs(Action.PauseAction(10)).addStepActs(Action.PlayAudioAction("3111012"))
+    tp2.addStepActs(Action.PlayAudioAction("3111002")).addStepActs(Action.LiftUp()).addStepActs(Action.PauseAction(10)).addStepActs(Action.LiftDown()).addStepActs(Action.PlayAudioAction("3111012"))
     task.addTaskPt(tp2)
 
 
